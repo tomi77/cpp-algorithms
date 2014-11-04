@@ -1,27 +1,30 @@
+/**
+ * Sorting integers - bubble method.
+ */
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-void b_sort(vector<int> &tab)
+void b_sort(vector<int> &v)
 {
 	int tmp, i, change;
 	
 	do
 	{
 		change = 0;
-		i = tab.size() - 1;
+		i = v.size() - 1;
 		
 		do
 		{
 			i--;
 			
-			if (tab[i + 1] < tab[i])
+			if (v[i + 1] < v[i])
 			{
-				tmp = tab[i];
-				tab[i] = tab[i + 1];
-				tab[i + 1] = tmp;
+				tmp = v[i];
+				v[i] = v[i + 1];
+				v[i + 1] = tmp;
 				change = 1;
 			}
 		}
@@ -33,29 +36,31 @@ void b_sort(vector<int> &tab)
 int main(int argc, char const *argv[])
 {
 	int count, i, n;
-	vector<int> tab;
+	vector<int> v;
 
-	cout << "How many:";
+	cout << "How many: ";
 	cin >> count;
 	
 	for (i = 0; i < count; ++i)
 	{
-		tab.push_back(rand() % count);
+		v.push_back(rand() % count);
 	}
 
-	cout << endl << "Before:";
-	for (i = 0; i < tab.size(); ++i)
+	cout << endl << "Before: ";
+	for (i = 0; i < v.size(); ++i)
 	{
-		cout << endl << tab[i];
+		cout << v[i] << " ";
 	}
+	cout << endl;
 
-	b_sort(tab);
+	b_sort(v);
 
-	cout << endl << endl << "After:";
-	for (i = 0; i < tab.size(); ++i)
+	cout << endl << endl << "After: ";
+	for (i = 0; i < v.size(); ++i)
 	{
-		cout << endl << tab[i];
+		cout << v[i] << " ";
 	}
+	cout << endl;
 
 	return 0;
 }
