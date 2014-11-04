@@ -18,8 +18,7 @@ void insertionsort(vector<int> &v)
 
 		while (v[j - 1] > k && j > 0)
 		{
-			v[j] = v[j - 1];
-			--j;
+			v[j] = v[--j];
 		}
 		v[j] = k;
 	}
@@ -30,7 +29,7 @@ int main(int argc, char const *argv[])
 	int count, i, j;
 	vector<int> v;
 
-	srand(time(NULL));
+	srand(time(0));
 
 	cout << "How many: ";
 	cin >> count;
