@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void b_sort(vector<int> &v)
+void bubblesort(vector<int> &v)
 {
 	int i, change;
 	
@@ -18,9 +18,7 @@ void b_sort(vector<int> &v)
 		
 		do
 		{
-			i--;
-			
-			if (v[i + 1] < v[i])
+			if (v[i] < v[--i])
 			{
 				swap(v[i], v[i + 1]);
 				change = 1;
@@ -51,7 +49,7 @@ int main(int argc, char const *argv[])
 	}
 	cout << endl;
 
-	b_sort(v);
+	bubblesort(v);
 
 	cout << endl << endl << "After: ";
 	for (i = 0; i < v.size(); ++i)
