@@ -9,7 +9,7 @@ using namespace std;
 
 void b_sort(vector<int> &v)
 {
-	int tmp, i, change;
+	int i, change;
 	
 	do
 	{
@@ -22,9 +22,7 @@ void b_sort(vector<int> &v)
 			
 			if (v[i + 1] < v[i])
 			{
-				tmp = v[i];
-				v[i] = v[i + 1];
-				v[i + 1] = tmp;
+				swap(v[i], v[i + 1]);
 				change = 1;
 			}
 		}
