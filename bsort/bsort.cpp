@@ -34,6 +34,8 @@ int main(int argc, char const *argv[])
 	int count, i, n;
 	vector<int> v;
 
+	srand(time(NULL));
+
 	cout << "How many: ";
 	cin >> count;
 	
