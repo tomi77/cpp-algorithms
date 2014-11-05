@@ -3,7 +3,7 @@ libisort: isort.cpp
 	ar rcs libisort.a isort.o
 
 all: main.cpp libisort
-	g++ main.cpp -o isort -L.. -L. -lutil -lisort -O2
+	g++ main.cpp -o isort -L../.. -L. -lutil -lisort -O2
 
 clean:
 	@rm -f isort

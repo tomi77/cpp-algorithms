@@ -1,11 +1,11 @@
 /**
- * Sorting integers - insertion sort method.
+ * Sorting integers - bubble method.
  */
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "../util.h"
-#include "isort.h"
+#include "../../util.h"
+#include "bsort.h"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
 	cout << endl << "Before: ";
 	printVector(v);
 
-	sort::insertion(v);
+	sort::bubble(v);
 
 	cout << endl << "After: ";
 	printVector(v);

@@ -3,7 +3,7 @@ libbsort: bsort.cpp
 	ar rcs libbsort.a bsort.o
 
 all: main.cpp libbsort
-	g++ main.cpp -o bsort -L.. -L. -lutil -lbsort -O2
+	g++ main.cpp -o bsort -L../.. -L. -lutil -lbsort -O2
 
 clean:
 	@rm -f bsort

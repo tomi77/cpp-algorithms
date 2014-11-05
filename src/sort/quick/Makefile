@@ -3,7 +3,7 @@ libqsort: qsort.cpp
 	ar rcs libqsort.a qsort.o
 
 all: main.cpp libqsort
-	g++ main.cpp -o qsort -L.. -L. -lutil -lqsort -O2
+	g++ main.cpp -o qsort -L../.. -L. -lutil -lqsort -O2
 
 clean:
 	@rm -f qsort
