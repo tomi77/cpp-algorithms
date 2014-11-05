@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -O2 -Wall -Llibs
+CXXFLAGS = -O2 -Wall -Llibs -Isrc
 AR = ar
 ARFLAGS = rcs
 

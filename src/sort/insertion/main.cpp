@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "../../util.h"
+#include "util.h"
 #include "isort.h"
 
 using namespace std;
@@ -17,7 +17,9 @@ int main(int argc, char const *argv[])
 	if (argc == 2)
 	{
 		size = atoi(argv[1]);
-	} else {
+	}
+	else
+	{
 		cout << "How many: ";
 		cin >> size;
 	}
@@ -33,7 +35,9 @@ int main(int argc, char const *argv[])
 		cout << endl << "After: ";
 		printVector(v);
 
-	} else {
+	}
+	else
+	{
 		sort::insertion(v);
 	}
 

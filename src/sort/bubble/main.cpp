@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "../../util.h"
+#include "util.h"
 #include "bsort.h"
 
 using namespace std;
@@ -17,14 +17,17 @@ int main(int argc, char const *argv[])
 	if (argc == 2)
 	{
 		size = atoi(argv[1]);
-	} else {
+	}
+	else
+	{
 		cout << "How many: ";
 		cin >> size;
 	}
 
 	fillVector(v, size);
 
-	if (size < 100) {
+	if (size < 100)
+	{
 		cout << endl << "Before: ";
 		printVector(v);
 
@@ -33,7 +36,9 @@ int main(int argc, char const *argv[])
 		cout << endl << "After: ";
 		printVector(v);
 
-	} else {
+	}
+	else
+	{
 		sort::bubble(v);
 	}
 
