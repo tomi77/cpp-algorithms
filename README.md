@@ -5,3 +5,4 @@
  * Bubble sort
  * Insertion sort
  * Quick sort
+ * Counting sort

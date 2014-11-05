@@ -39,8 +39,18 @@ qsort: libutil libqsort src/sort/quick/main.cpp
 	@mkdir -p bin
 	$(CXX) src/sort/quick/main.cpp -o bin/$@ -lutil -lqsort $(CXXFLAGS)
 
+libcsort: src/sort/counting/csort.cpp
+	@mkdir -p libs
+	$(CXX) $(CXXFLAGS) $^ -c
+	$(AR) $(ARFLAGS) libs/$@.a csort.o
+	@rm -f csort.o
+
+csort: libutil libcsort src/sort/counting/main.cpp
+	@mkdir -p bin
+	$(CXX) src/sort/counting/main.cpp -o bin/$@ -lutil -lcsort $(CXXFLAGS)
+
 clean:
 	@rm -f libs/* bin/*
 
 .PHONY: all
-all: libutil libbsort bsort libisort isort libqsort qsort
+all: libutil libbsort bsort libisort isort libqsort qsort libcsort csort
