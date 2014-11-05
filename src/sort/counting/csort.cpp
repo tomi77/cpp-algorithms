@@ -1,5 +1,5 @@
 /**
- * Sorting integers - quick sort method.
+ * Sorting integers - counting sort method.
  */
 #include <vector>
 #include <algorithm>
