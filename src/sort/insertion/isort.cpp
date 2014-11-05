@@ -7,7 +7,8 @@
 namespace sort {
 	void insertion(std::vector<int> &v)
 	{
-		int i, j, k;
+		unsigned int i, j;
+		int k;
 
 		for (i = 0; i < v.size(); ++i)
 		{
@@ -16,7 +17,8 @@ namespace sort {
 
 			while (v[j - 1] > k && j > 0)
 			{
-				v[j] = v[--j];
+				v[j] = v[j - 1];
+				--j;
 			}
 			v[j] = k;
 		}

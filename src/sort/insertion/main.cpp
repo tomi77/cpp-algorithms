@@ -11,13 +11,13 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	int size, i, n;
+	int size;
 	vector<int> v;
 
 	cout << "How many: ";
 	cin >> size;
 
-	fillVector(v, size);	
+	fillVector(v, size);
 
 	cout << endl << "Before: ";
 	printVector(v);

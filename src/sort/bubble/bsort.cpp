@@ -7,23 +7,25 @@
 namespace sort {
 	void bubble(std::vector<int> &v)
 	{
-		int i, change;
-		
+		int i;
+		bool change;
+
 		do
 		{
-			change = 0;
+			change = false;
 			i = v.size() - 1;
-			
+
 			do
 			{
-				if (v[i] < v[--i])
+				--i;
+				if (v[i + 1] < v[i])
 				{
 					std::swap(v[i], v[i + 1]);
-					change = 1;
+					change = true;
 				}
 			}
 			while (i != 0);
 		}
-		while (change != 0);
+		while (change);
 	}
 } // namespace
