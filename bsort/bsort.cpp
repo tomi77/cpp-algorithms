@@ -1,7 +1,6 @@
 /**
  * Sorting integers - bubble method.
  */
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -27,38 +26,4 @@ void bubblesort(vector<int> &v)
 		while (i != 0);
 	}
 	while (change != 0);
-}
-
-int main(int argc, char const *argv[])
-{
-	int count, i, n;
-	vector<int> v;
-
-	srand(time(0));
-
-	cout << "How many: ";
-	cin >> count;
-	
-	for (i = 0; i < count; ++i)
-	{
-		v.push_back(rand() % count);
-	}
-
-	cout << endl << "Before: ";
-	for (i = 0; i < v.size(); ++i)
-	{
-		cout << v[i] << " ";
-	}
-	cout << endl;
-
-	bubblesort(v);
-
-	cout << endl << endl << "After: ";
-	for (i = 0; i < v.size(); ++i)
-	{
-		cout << v[i] << " ";
-	}
-	cout << endl;
-
-	return 0;
 }
