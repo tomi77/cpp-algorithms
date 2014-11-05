@@ -1,3 +1,5 @@
 #include <vector>
 
-void insertionsort(std::vector<int> &v);
+namespace sort {
+	void insertion(std::vector<int> &v);
+}

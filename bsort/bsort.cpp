@@ -4,26 +4,26 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-void bubblesort(vector<int> &v)
-{
-	int i, change;
-	
-	do
+namespace sort {
+	void bubble(std::vector<int> &v)
 	{
-		change = 0;
-		i = v.size() - 1;
+		int i, change;
 		
 		do
 		{
-			if (v[i] < v[--i])
+			change = 0;
+			i = v.size() - 1;
+			
+			do
 			{
-				swap(v[i], v[i + 1]);
-				change = 1;
+				if (v[i] < v[--i])
+				{
+					std::swap(v[i], v[i + 1]);
+					change = 1;
+				}
 			}
+			while (i != 0);
 		}
-		while (i != 0);
+		while (change != 0);
 	}
-	while (change != 0);
-}
+} // namespace

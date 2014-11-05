@@ -1,3 +1,5 @@
 #include <vector>
 
-void bubblesort(std::vector<int> &v);
+namespace sort {
+	void bubble(std::vector<int> &v);
+}

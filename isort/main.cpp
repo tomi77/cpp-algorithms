@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
 	cout << endl << "Before: ";
 	printVector(v);
 
-	insertionsort(v);
+	sort::insertion(v);
 
 	cout << endl << "After: ";
 	printVector(v);

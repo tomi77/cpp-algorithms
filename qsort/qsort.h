@@ -1,3 +1,5 @@
 #include <vector>
 
-void quicksort(std::vector<int>& v);
+namespace sort {
+	void quick(std::vector<int> &v);
+}

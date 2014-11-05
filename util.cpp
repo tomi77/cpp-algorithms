@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void printVector(vector<int>& v)
+void printVector(vector<int> &v)
 {
 	for (int i = 0; i < v.size(); ++i)
 	{
@@ -13,7 +13,7 @@ void printVector(vector<int>& v)
 	cout << endl;
 }
 
-void fillVector(vector<int>& v, const int size)
+void fillVector(vector<int> &v, const int size)
 {
 	srand(time(0));
 

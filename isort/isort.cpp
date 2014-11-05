@@ -4,21 +4,21 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-void insertionsort(vector<int> &v)
-{
-	int i, j, k;
-
-	for (i = 0; i < v.size(); ++i)
+namespace sort {
+	void insertion(std::vector<int> &v)
 	{
-		j = i;
-		k = v[i];
+		int i, j, k;
 
-		while (v[j - 1] > k && j > 0)
+		for (i = 0; i < v.size(); ++i)
 		{
-			v[j] = v[--j];
+			j = i;
+			k = v[i];
+
+			while (v[j - 1] > k && j > 0)
+			{
+				v[j] = v[--j];
+			}
+			v[j] = k;
 		}
-		v[j] = k;
 	}
-}
+} // namespace
