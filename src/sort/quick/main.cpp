@@ -14,18 +14,28 @@ int main(int argc, char const *argv[])
 	int size;
 	vector<int> v;
 
-	cout << "How many: ";
-	cin >> size;
+	if (argc == 2)
+	{
+		size = atoi(argv[1]);
+	} else {
+		cout << "How many: ";
+		cin >> size;
+	}
 
 	fillVector(v, size);
 
-	cout << endl << "Before: ";
-	printVector(v);
+	if (size < 100) {
+		cout << endl << "Before: ";
+		printVector(v);
 
-	sort::quick(v);
+		sort::quick(v);
 
-	cout << endl << "After: ";
-	printVector(v);
+		cout << endl << "After: ";
+		printVector(v);
+
+	} else {
+		sort::quick(v);
+	}
 
 	return 0;
 }
