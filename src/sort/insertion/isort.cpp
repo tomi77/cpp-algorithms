@@ -7,10 +7,10 @@
 namespace sort {
 	void insertion(std::vector<int> &v)
 	{
-		unsigned int i, j;
+		unsigned int i, j, size;
 		int k;
 
-		for (i = 1; i < v.size(); ++i)
+		for (i = 1, size = v.size(); i < size; ++i)
 		{
 			j = i;
 			k = v[i];

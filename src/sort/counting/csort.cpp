@@ -3,7 +3,6 @@
  */
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 using namespace std;
 
@@ -11,9 +10,9 @@ namespace sort {
 	void counting(vector<int> &v)
 	{
 		vector<int> tmp;
-		unsigned int i, j;
-		
-		for (i = 0; i < v.size(); ++i)
+		unsigned int i, size;
+
+		for (i = 0, size = v.size(); i < size; ++i)
 		{
 			if (tmp.size() < v[i])
 			{
@@ -24,12 +23,12 @@ namespace sort {
 
 		v.clear();
 
-		for (i = 0; i < tmp.size(); ++i)
+		for (i = 0, size = tmp.size(); i < size; ++i)
 		{
-			for (j = 0; j < tmp[i]; ++j)
+			if (tmp[i] > 0)
 			{
-				v.push_back(i);
+				v.insert(v.end(), tmp[i], i);
 			}
 		}
 	}
-}
+} // namespace
