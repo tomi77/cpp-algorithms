@@ -6,3 +6,7 @@
  * Insertion sort
  * Quick sort
  * Counting sort
+
+## Others
+
+ * Fibonacci

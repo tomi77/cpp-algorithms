@@ -52,8 +52,18 @@ csort: libutil libcsort src/sort/counting/main.cpp
 	@mkdir -p $(BINDIR)
 	$(CXX) src/sort/counting/main.cpp -o $(BINDIR)/$@ -lutil -lcsort $(CXXFLAGS)
 
+libfib: src/fib/fib.cpp
+	@mkdir -p $(LIBDIR)
+	$(CXX) $(CXXFLAGS) $^ -c
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a fib.o
+	@rm -f fib.o
+
+fib: libfib src/fib/main.cpp
+	@mkdir -p $(BINDIR)
+	$(CXX) src/fib/main.cpp -o $(BINDIR)/$@ -lfib $(CXXFLAGS)
+
 clean:
 	@rm -f $(LIBDIR)/* $(BINDIR)/*
 
 .PHONY: all
-all: libutil libbsort bsort libisort isort libqsort qsort libcsort csort
+all: libutil libbsort bsort libisort isort libqsort qsort libcsort csort libfib fib
