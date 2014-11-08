@@ -8,15 +8,15 @@ ARFLAGS = rcs
 
 libutil: src/util.cpp
 	@mkdir -p $(LIBDIR)
-	$(CXX) $(CXXFLAGS) $^ -c
-	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a util.o
-	@rm -f util.o
+	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
+	@rm -f $@.o
 
 libbsort: src/sort/bubble/bsort.cpp
 	@mkdir -p $(LIBDIR)
-	$(CXX) $(CXXFLAGS) $^ -c
-	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a bsort.o
-	@rm -f bsort.o
+	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
+	@rm -f $@.o
 
 bsort: libutil libbsort src/sort/bubble/main.cpp
 	@mkdir -p $(BINDIR)
@@ -24,9 +24,9 @@ bsort: libutil libbsort src/sort/bubble/main.cpp
 
 libisort: src/sort/insertion/isort.cpp
 	@mkdir -p $(LIBDIR)
-	$(CXX) $(CXXFLAGS) $^ -c
-	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a isort.o
-	@rm -f isort.o
+	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
+	@rm -f $@.o
 
 isort: libutil libisort src/sort/insertion/main.cpp
 	@mkdir -p $(BINDIR)
@@ -34,9 +34,9 @@ isort: libutil libisort src/sort/insertion/main.cpp
 
 libqsort: src/sort/quick/qsort.cpp
 	@mkdir -p $(LIBDIR)
-	$(CXX) $(CXXFLAGS) $^ -c
-	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a qsort.o
-	@rm -f qsort.o
+	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
+	@rm -f $@.o
 
 qsort: libutil libqsort src/sort/quick/main.cpp
 	@mkdir -p $(BINDIR)
@@ -44,9 +44,9 @@ qsort: libutil libqsort src/sort/quick/main.cpp
 
 libcsort: src/sort/counting/csort.cpp
 	@mkdir -p $(LIBDIR)
-	$(CXX) $(CXXFLAGS) $^ -c
-	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a csort.o
-	@rm -f csort.o
+	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
+	@rm -f $@.o
 
 csort: libutil libcsort src/sort/counting/main.cpp
 	@mkdir -p $(BINDIR)
@@ -54,13 +54,23 @@ csort: libutil libcsort src/sort/counting/main.cpp
 
 libfib: src/fib/fib.cpp
 	@mkdir -p $(LIBDIR)
-	$(CXX) $(CXXFLAGS) $^ -c
-	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a fib.o
-	@rm -f fib.o
+	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
+	@rm -f $@.o
 
 fib: libfib src/fib/main.cpp
 	@mkdir -p $(BINDIR)
 	$(CXX) src/fib/main.cpp -o $(BINDIR)/$@ -lfib $(CXXFLAGS)
+
+libcrc32: src/hash/crc32/crc32.cpp
+	@mkdir -p $(LIBDIR)
+	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
+	@rm -f $@.o
+
+crc32: libcrc32 src/hash/crc32/main.cpp
+	@mkdir -p $(BINDIR)
+	$(CXX) src/hash/crc32/main.cpp -o $(BINDIR)/$@ -lcrc32 $(CXXFLAGS)
 
 clean:
 	@rm -f $(LIBDIR)/* $(BINDIR)/*
