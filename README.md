@@ -7,6 +7,10 @@
  * Quick sort
  * Counting sort
 
+## Hash
+
+ * CRC32
+
 ## Others
 
  * Fibonacci
