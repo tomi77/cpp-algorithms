@@ -1,20 +1,24 @@
 # C++ algorithms
 
-## Sorting
+## sort
 
- * Bubble sort
- * Insertion sort
- * Quick sort
- * Counting sort
+ * bsort - Bubble sort
+ * isort - Insertion sort
+ * qsort - Quick sort
+ * csort - Counting sort
 
-## Crypto
+## crypto::hash
 
- * CRC32
+ * crc32 - CRC32
 
-## Math
+## crypto
 
- * Horner
+ * caesar - Caesar cipher
+
+## math::polynomial
+
+ * horner - Horner's method
 
 ## Others
 
- * Fibonacci
+ * fib - Fibonacci number
