@@ -2,7 +2,7 @@ SRCDIR = src
 BINDIR = bin
 LIBDIR = lib
 CXX = g++
-CXXFLAGS = -O2 -Wall -L$(LIBDIR) -I$(SRCDIR)
+CXXFLAGS = -O2 -Wall -std=c++11 -L$(LIBDIR) -I$(SRCDIR)
 AR = ar
 ARFLAGS = rcs
 
@@ -62,18 +62,20 @@ fib: libfib src/fib/main.cpp
 	@mkdir -p $(BINDIR)
 	$(CXX) src/fib/main.cpp -o $(BINDIR)/$@ -lfib $(CXXFLAGS)
 
-libcrc32: src/hash/crc32/crc32.cpp
+libcrc32: src/crypto/hash/crc32/crc32.cpp
 	@mkdir -p $(LIBDIR)
 	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
 	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
 	@rm -f $@.o
 
-crc32: libcrc32 src/hash/crc32/main.cpp
+crc32: libcrc32 src/crypto/hash/crc32/main.cpp
 	@mkdir -p $(BINDIR)
-	$(CXX) src/hash/crc32/main.cpp -o $(BINDIR)/$@ -lcrc32 $(CXXFLAGS)
+	$(CXX) src/crypto/hash/crc32/main.cpp -o $(BINDIR)/$@ -lcrc32 $(CXXFLAGS)
 
 clean:
 	@rm -f $(LIBDIR)/* $(BINDIR)/*
 
+alllibs: libutil libbsort libisort libqsort libcsort libfib libcrc32 libhorner
+
 .PHONY: all
-all: libutil libbsort bsort libisort isort libqsort qsort libcsort csort libfib fib
+all: bsort isort qsort csort fib crc32 horner

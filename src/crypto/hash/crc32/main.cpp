@@ -27,7 +27,7 @@ int main(int argc, char const *argv[])
 	file.read(memblock, size);
 	file.close();
 
-	unsigned int crc32 = hash::crc32(memblock);
+	unsigned int crc32 = crypto::hash::crc32(memblock);
 
 	cout.setf(ios::hex, ios::basefield);
 	cout << crc32 << endl;
