@@ -1,65 +1,81 @@
 #include <string>
+#include <vector>
 #include <math.h>
 
 using namespace std;
 
 namespace crypto {
 	namespace caesar {
-		void caesar(string &s, int k)
+		vector<string> default_alphabets = {
+			"abcdefghijklmnopqrstuvwxyz",
+			"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+			"0123456789"
+		};
+
+		void caesar(string &s, const int k, const vector<string> &alphabets)
 		{
 			char c;
-			string::iterator iter = s.begin();
 
-			while (iter != s.cend())
+			for (string::iterator iter = s.begin(); iter != s.cend(); iter++)
 			{
 				c = *iter;
 
-				if (c >= 'a' && c <= 'z')
+				for (auto alphabet = alphabets.begin(); alphabet != alphabets.cend(); alphabet++)
 				{
-					c -= 'a';
-					c += k;
-					c = c < 0 ? 'z' - 'a' + 1 - fabs(c) : fmod(c, 'z' - 'a' + 1);
-					c += 'a';
-				}
-				else if (c >= 'A' && c <= 'Z')
-				{
-					c -= 'A';
-					c += k;
-					c = c < 0 ? 'Z' - 'A' + 1 - fabs(c) : fmod(c, 'Z' - 'A' + 1);
-					c += 'A';
-				}
-				else if (c >= '0' && c <= '9')
-				{
-					c -= '0';
-					c += k;
-					c = c < 0 ? '9' - '0' + 1 - fabs(c) : fmod(c, '9' - '0' + 1);
-					c += '0';
+					char first = (*alphabet).front(), last = (*alphabet).back();
+
+					if (c >= first && c <= last)
+					{
+						c -= first;
+						c += k;
+						c = c < 0 ? (*alphabet).length() - fabs(c) : fmod(c, (*alphabet).length());
+						c += first;
+						break;
+					}
 				}
 
 				*iter = c;
-
-				iter++;
 			}
 		}
 
-		void encode(string &s, int k)
+		void encode(string &s, const int k, const vector<string> &alphabets)
 		{
-			caesar(s, k);
+			caesar(s, k, alphabets);
+		}
+
+		void encode(string &s, const vector<string> &alphabets)
+		{
+			caesar(s, 3, alphabets);
+		}
+
+		void encode(string &s, const int k)
+		{
+			caesar(s, k, default_alphabets);
 		}
 
 		void encode(string &s)
 		{
-			caesar(s, 3);
+			caesar(s, 3, default_alphabets);
 		}
 
-		void decode(string &s, int k)
+		void decode(string &s, const int k, const vector<string> &alphabets)
 		{
-			caesar(s, -k);
+			caesar(s, -k, alphabets);
+		}
+
+		void decode(string &s, const vector<string> &alphabets)
+		{
+			caesar(s, -3, alphabets);
+		}
+
+		void decode(string &s, const int k)
+		{
+			caesar(s, -k, default_alphabets);
 		}
 
 		void decode(string &s)
 		{
-			caesar(s, -3);
+			caesar(s, -3, default_alphabets);
 		}
 	}
 }
