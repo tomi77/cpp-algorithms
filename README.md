@@ -7,9 +7,13 @@
  * Quick sort
  * Counting sort
 
-## Hash
+## Crypto
 
  * CRC32
+
+## Math
+
+ * Horner
 
 ## Others
 

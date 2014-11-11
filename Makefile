@@ -72,6 +72,16 @@ crc32: libcrc32 src/crypto/hash/crc32/main.cpp
 	@mkdir -p $(BINDIR)
 	$(CXX) src/crypto/hash/crc32/main.cpp -o $(BINDIR)/$@ -lcrc32 $(CXXFLAGS)
 
+libhorner: src/math/polynomial/horner.cpp
+	@mkdir -p $(LIBDIR)
+	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
+	@rm -f $@.o
+
+horner: libhorner src/math/polynomial/main.cpp
+	@mkdir -p $(BINDIR)
+	$(CXX) src/math/polynomial/main.cpp -o $(BINDIR)/$@ -lhorner $(CXXFLAGS)
+
 clean:
 	@rm -f $(LIBDIR)/* $(BINDIR)/*
 
