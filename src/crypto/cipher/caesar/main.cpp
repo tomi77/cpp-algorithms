@@ -16,12 +16,12 @@ int main(int argc, char const *argv[])
 
 	do
 	{
-		getline(std::cin, s);
+		getline(cin, s);
 
 		if (decode)
-			crypto::caesar::decode(s);
+			crypto::cipher::caesar::decode(s);
 		else
-			crypto::caesar::encode(s);
+			crypto::cipher::caesar::encode(s);
 
 		cout << s << endl;
 	} while (!cin.eof());

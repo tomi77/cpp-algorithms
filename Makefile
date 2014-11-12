@@ -72,15 +72,15 @@ crc32: libcrc32 src/crypto/hash/crc32/main.cpp
 	@mkdir -p $(BINDIR)
 	$(CXX) src/crypto/hash/crc32/main.cpp -o $(BINDIR)/$@ -lcrc32 $(CXXFLAGS)
 
-libcaesar: src/crypto/caesar/caesar.cpp
+libtransposition: src/crypto/cipher/transposition/transposition.cpp
 	@mkdir -p $(LIBDIR)
 	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
 	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
 	@rm -f $@.o
 
-caesar: libcaesar src/crypto/caesar/main.cpp
+caesar: libtransposition src/crypto/cipher/caesar/main.cpp
 	@mkdir -p $(BINDIR)
-	$(CXX) src/crypto/caesar/main.cpp -o $(BINDIR)/$@ -lcaesar $(CXXFLAGS)
+	$(CXX) src/crypto/cipher/caesar/main.cpp -o $(BINDIR)/$@ -ltransposition $(CXXFLAGS)
 
 libhorner: src/math/polynomial/horner.cpp
 	@mkdir -p $(LIBDIR)
@@ -95,7 +95,7 @@ horner: libhorner src/math/polynomial/main.cpp
 clean:
 	@rm -f $(LIBDIR)/* $(BINDIR)/*
 
-alllibs: libutil libbsort libisort libqsort libcsort libfib libcrc32 libcezar libhorner
+alllibs: libutil libbsort libisort libqsort libcsort libfib libcrc32 libtransposition libhorner
 
 .PHONY: all
 all: bsort isort qsort csort fib crc32 cezar horner

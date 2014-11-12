@@ -11,8 +11,9 @@
 
  * crc32 - CRC32
 
-## crypto
+## crypto::cipher
 
+ * transposition - Transposition cipher
  * caesar - Caesar cipher
 
 ## math::polynomial
