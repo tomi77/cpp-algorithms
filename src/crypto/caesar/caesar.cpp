@@ -15,22 +15,23 @@ namespace crypto {
 
 		void caesar(string &s, const int k, const alphabets_t &alphabets)
 		{
-			char c, first, last;
+			char c, first;
 
 			for (string::iterator iter = s.begin(); iter != s.cend(); iter++)
 			{
 				c = *iter;
 
-				for (alphabets_t::const_iterator alphabet = alphabets.cbegin(); alphabet != alphabets.cend(); alphabet++)
+				for (alphabets_t::const_iterator alphabet_iter = alphabets.cbegin(); alphabet_iter != alphabets.cend(); alphabet_iter++)
 				{
-					first = (*alphabet).front();
-					last = (*alphabet).back();
+					string alphabet = *alphabet_iter;
 
-					if (c >= first && c <= last)
+					if (alphabet.find(c) != string::npos)
 					{
+						first = alphabet.front();
+
 						c -= first;
 						c += k;
-						c = c < 0 ? (*alphabet).length() - fabs(c) : fmod(c, (*alphabet).length());
+						c = c < 0 ? alphabet.length() - fabs(c) : fmod(c, alphabet.length());
 						c += first;
 						break;
 					}
