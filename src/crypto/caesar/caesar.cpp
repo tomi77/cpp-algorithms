@@ -1,28 +1,30 @@
 #include <string>
 #include <vector>
 #include <math.h>
+#include "caesar.h"
 
 using namespace std;
 
 namespace crypto {
 	namespace caesar {
-		vector<string> default_alphabets = {
+		alphabets_t default_alphabets = {
 			"abcdefghijklmnopqrstuvwxyz",
 			"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
 			"0123456789"
 		};
 
-		void caesar(string &s, const int k, const vector<string> &alphabets)
+		void caesar(string &s, const int k, const alphabets_t &alphabets)
 		{
-			char c;
+			char c, first, last;
 
 			for (string::iterator iter = s.begin(); iter != s.cend(); iter++)
 			{
 				c = *iter;
 
-				for (auto alphabet = alphabets.begin(); alphabet != alphabets.cend(); alphabet++)
+				for (alphabets_t::const_iterator alphabet = alphabets.cbegin(); alphabet != alphabets.cend(); alphabet++)
 				{
-					char first = (*alphabet).front(), last = (*alphabet).back();
+					first = (*alphabet).front();
+					last = (*alphabet).back();
 
 					if (c >= first && c <= last)
 					{
@@ -38,12 +40,12 @@ namespace crypto {
 			}
 		}
 
-		void encode(string &s, const int k, const vector<string> &alphabets)
+		void encode(string &s, const int k, const alphabets_t &alphabets)
 		{
 			caesar(s, k, alphabets);
 		}
 
-		void encode(string &s, const vector<string> &alphabets)
+		void encode(string &s, const alphabets_t &alphabets)
 		{
 			caesar(s, 3, alphabets);
 		}
@@ -58,12 +60,12 @@ namespace crypto {
 			caesar(s, 3, default_alphabets);
 		}
 
-		void decode(string &s, const int k, const vector<string> &alphabets)
+		void decode(string &s, const int k, const alphabets_t &alphabets)
 		{
 			caesar(s, -k, alphabets);
 		}
 
-		void decode(string &s, const vector<string> &alphabets)
+		void decode(string &s, const alphabets_t &alphabets)
 		{
 			caesar(s, -3, alphabets);
 		}

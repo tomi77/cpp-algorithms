@@ -6,15 +6,17 @@
 
 namespace crypto {
 	namespace caesar {
+		typedef std::vector<std::string> alphabets_t;
+
 		void encode(std::string &s);
 		void encode(std::string &s, const int k);
-		void encode(std::string &s, const int k, const std::vector<std::string> &alphabets);
-		void encode(std::string &s, const std::vector<std::string> &aplhabets);
+		void encode(std::string &s, const int k, const alphabets_t &alphabets);
+		void encode(std::string &s, const alphabets_t &aplhabets);
 
 		void decode(std::string &s);
 		void decode(std::string &s, const int k);
-		void decode(std::string &s, const int k, const std::vector<std::string> &alphabets);
-		void decode(std::string &s, const std::vector<std::string> &aplhabets);
+		void decode(std::string &s, const int k, const alphabets_t &alphabets);
+		void decode(std::string &s, const alphabets_t &aplhabets);
 	}
 }
 
