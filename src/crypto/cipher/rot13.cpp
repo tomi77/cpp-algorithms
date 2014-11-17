@@ -1,6 +1,6 @@
 #include <string>
 #include <iostream>
-#include "rot47.h"
+#include "cipher.h"
 
 using namespace std;
 using namespace crypto::cipher;
@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
 	while (!cin.eof())
 	{
 		getline(cin, s);
-		rot47(s);
+		rot13(s);
 		cout << s << endl;
 	}
 

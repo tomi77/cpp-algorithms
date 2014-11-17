@@ -1,9 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "crc32.h"
+#include "hash.h"
 
 using namespace std;
+using namespace crypto::hash;
 
 int main(int argc, char const *argv[])
 {
@@ -27,10 +28,10 @@ int main(int argc, char const *argv[])
 	file.read(memblock, size);
 	file.close();
 
-	unsigned int crc32 = crypto::hash::crc32(memblock);
+	unsigned int crc = crc32(memblock);
 
 	cout.setf(ios::hex, ios::basefield);
-	cout << crc32 << endl;
+	cout << crc << endl;
 
 	delete[] memblock;
 

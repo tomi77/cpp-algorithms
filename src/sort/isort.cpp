@@ -1,11 +1,11 @@
 /**
- * Sorting integers - quick sort method.
+ * Sorting integers - insertion sort method.
  */
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include "util.h"
-#include "qsort.h"
+#include "sort.h"
 
 using namespace std;
 
@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
 		cout << endl << "Before: ";
 		printVector(v);
 
-		sort::quick(v);
+		sort::insertion(v);
 
 		cout << endl << "After: ";
 		printVector(v);
@@ -38,7 +38,7 @@ int main(int argc, char const *argv[])
 	}
 	else
 	{
-		sort::quick(v);
+		sort::insertion(v);
 	}
 
 	return 0;

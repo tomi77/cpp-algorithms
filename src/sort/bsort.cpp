@@ -5,7 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include "util.h"
-#include "csort.h"
+#include "sort.h"
 
 using namespace std;
 
@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
 		cout << endl << "Before: ";
 		printVector(v);
 
-		sort::counting(v);
+		sort::bubble(v);
 
 		cout << endl << "After: ";
 		printVector(v);
@@ -39,7 +39,7 @@ int main(int argc, char const *argv[])
 	}
 	else
 	{
-		sort::counting(v);
+		sort::bubble(v);
 	}
 
 	return 0;

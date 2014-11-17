@@ -18,7 +18,6 @@
  * rot13 - ROT13 cipher
  * rot18 - ROT18 cipher
  * rot47 - ROT47 cipher
- * transposition - Transposition cipher
 
 ## math::polynomial
 

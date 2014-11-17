@@ -1,11 +1,11 @@
 /**
- * Sorting integers - bubble method.
+ * Sorting integers - quick sort method.
  */
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include "util.h"
-#include "bsort.h"
+#include "sort.h"
 
 using namespace std;
 
@@ -26,12 +26,11 @@ int main(int argc, char const *argv[])
 
 	fillVector(v, size);
 
-	if (size < 100)
-	{
+	if (size < 100) {
 		cout << endl << "Before: ";
 		printVector(v);
 
-		sort::bubble(v);
+		sort::quick(v);
 
 		cout << endl << "After: ";
 		printVector(v);
@@ -39,7 +38,7 @@ int main(int argc, char const *argv[])
 	}
 	else
 	{
-		sort::bubble(v);
+		sort::quick(v);
 	}
 
 	return 0;

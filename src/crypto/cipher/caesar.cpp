@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "caesar.h"
+#include "cipher.h"
 
 using namespace std;
 
