@@ -82,6 +82,46 @@ caesar: libtransposition src/crypto/cipher/caesar/main.cpp
 	@mkdir -p $(BINDIR)
 	$(CXX) src/crypto/cipher/caesar/main.cpp -o $(BINDIR)/$@ -ltransposition $(CXXFLAGS)
 
+librot13: src/crypto/cipher/rot13/rot13.cpp
+	@mkdir -p $(LIBDIR)
+	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
+	@rm -f $@.o
+
+rot13: librot13 src/crypto/cipher/rot13/main.cpp
+	@mkdir -p $(BINDIR)
+	$(CXX) src/crypto/cipher/rot13/main.cpp -o $(BINDIR)/$@ -lrot13 $(CXXFLAGS)
+
+librot47: src/crypto/cipher/rot47/rot47.cpp
+	@mkdir -p $(LIBDIR)
+	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
+	@rm -f $@.o
+
+rot47: librot47 src/crypto/cipher/rot47/main.cpp
+	@mkdir -p $(BINDIR)
+	$(CXX) src/crypto/cipher/rot47/main.cpp -o $(BINDIR)/$@ -lrot47 $(CXXFLAGS)
+
+librot5: src/crypto/cipher/rot5/rot5.cpp
+	@mkdir -p $(LIBDIR)
+	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
+	@rm -f $@.o
+
+rot5: librot5 src/crypto/cipher/rot5/main.cpp
+	@mkdir -p $(BINDIR)
+	$(CXX) src/crypto/cipher/rot5/main.cpp -o $(BINDIR)/$@ -lrot5 $(CXXFLAGS)
+
+librot18: src/crypto/cipher/rot18/rot18.cpp
+	@mkdir -p $(LIBDIR)
+	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
+	$(AR) $(ARFLAGS) $(LIBDIR)/$@.a $@.o
+	@rm -f $@.o
+
+rot18: librot18 src/crypto/cipher/rot18/main.cpp
+	@mkdir -p $(BINDIR)
+	$(CXX) src/crypto/cipher/rot18/main.cpp -o $(BINDIR)/$@ -lrot18 $(CXXFLAGS)
+
 libhorner: src/math/polynomial/horner.cpp
 	@mkdir -p $(LIBDIR)
 	$(CXX) $(CXXFLAGS) $^ -c -o $@.o
@@ -95,7 +135,7 @@ horner: libhorner src/math/polynomial/main.cpp
 clean:
 	@rm -f $(LIBDIR)/* $(BINDIR)/*
 
-alllibs: libutil libbsort libisort libqsort libcsort libfib libcrc32 libtransposition libhorner
+alllibs: libutil libbsort libisort libqsort libcsort libfib libcrc32 libtransposition libhorner librot5 librot13 librot18 librot47
 
 .PHONY: all
-all: bsort isort qsort csort fib crc32 cezar horner
+all: bsort isort qsort csort fib crc32 cezar horner rot5 rot13 rot18 rot47

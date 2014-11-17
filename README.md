@@ -3,9 +3,9 @@
 ## sort
 
  * bsort - Bubble sort
+ * csort - Counting sort
  * isort - Insertion sort
  * qsort - Quick sort
- * csort - Counting sort
 
 ## crypto::hash
 
@@ -13,8 +13,12 @@
 
 ## crypto::cipher
 
- * transposition - Transposition cipher
  * caesar - Caesar cipher
+ * rot5 - ROT5 cipher
+ * rot13 - ROT13 cipher
+ * rot18 - ROT18 cipher
+ * rot47 - ROT47 cipher
+ * transposition - Transposition cipher
 
 ## math::polynomial
 
